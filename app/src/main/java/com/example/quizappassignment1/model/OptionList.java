@@ -2,7 +2,10 @@ package com.example.quizappassignment1.model;
 
 import com.example.quizappassignment1.R;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class OptionList {
@@ -27,6 +30,46 @@ public class OptionList {
 
     public void setOptionList(List<Option> optionList) {
         this.optionList = optionList;
+    }
+
+    public Option getRandomOption() {
+        List<Option> copy = optionList;
+
+        Collections.shuffle(copy);
+
+        return copy.get(0);
+    }
+
+    public List<String> getThreeRandomAnswers(Option correct) {
+        List<String> answers = new ArrayList<String>();
+        List<Option> copy = optionList;
+
+        answers.add(correct.getMatchingName());
+
+        Collections.shuffle(copy);
+
+        Option wrongOption1, wrongOption2;
+
+        if(copy.get(0).equals(correct)) {
+            wrongOption1 = copy.get(1);
+            wrongOption2 = copy.get(2);
+        }
+        else {
+            wrongOption1 = copy.get(0);
+            if(copy.get(1).equals(correct)) {
+                wrongOption2 = copy.get(2);
+            }
+            else {
+                wrongOption2 = copy.get(1);
+            }
+        }
+
+        answers.add(wrongOption1.getMatchingName());
+        answers.add(wrongOption2.getMatchingName());
+
+        Collections.shuffle(answers);
+
+        return answers;
     }
 
     @Override
