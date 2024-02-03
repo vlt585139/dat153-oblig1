@@ -7,13 +7,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.example.quizappassignment1.model.Option;
 import com.example.quizappassignment1.model.OptionList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static OptionList optionList;
+    static OptionList optionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         optionList = new OptionList();
+
 
         Button openGalleryButton = (Button) findViewById(R.id.openGallery);
         openGalleryButton.setOnClickListener(new View.OnClickListener() {
