@@ -13,11 +13,7 @@ public class OptionList {
     private List<Option> optionList;
 
     public OptionList() {
-        this.optionList = Arrays.asList(
-                new Option(R.drawable.kamera, "Camera"),
-                new Option(R.drawable.tre, "Tree"),
-                new Option(R.drawable.natur, "Nature"),
-                new Option(R.drawable.loanlink_logo, "Loanlink"));
+        this.optionList = new ArrayList<Option>();
     }
 
     public List<Option> getOptionList() {
@@ -30,6 +26,7 @@ public class OptionList {
 
     public void add(Option newEntry) {
         optionList.add(newEntry);
+        sort();
     }
 
     public Option getRandomOption() {

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.quizappassignment1.model.Option;
+import com.example.quizappassignment1.model.Storage;
 
 import java.util.List;
 
@@ -35,21 +36,24 @@ public class QuizActivity extends AppCompatActivity {
 
     int points;
 
+    int attempts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
         this.points = 0;
+        this.attempts = 0;
         this.pointsText = findViewById(R.id.pointsText);
-        pointsText.setText("Points: " + points);
+        pointsText.setText("Points: " + points + "/" + attempts);
 
         createQuiz();
     }
 
     public void createQuiz() {
-        correct = MainActivity.optionList.getRandomOption();
-        options = MainActivity.optionList.getThreeRandomAnswers(correct);
+        correct = Storage.getOptionList().getRandomOption();
+        options = Storage.getOptionList().getThreeRandomAnswers(correct);
 
         btnOption1 = findViewById(R.id.btnOption1);
         btnOption1.setText(options.get(0));
@@ -61,7 +65,7 @@ public class QuizActivity extends AppCompatActivity {
         btnOption3.setText(options.get(2));
 
         imageView = findViewById(R.id.quizImage);
-        imageView.setImageResource(correct.getImage());
+        imageView.setImageURI(correct.getImage());
 
         correctIndex = options.indexOf(correct.getMatchingName());
 
@@ -69,8 +73,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(correctIndex == 0) {
                     points++;
-                    pointsText.setText("Points: " + points);
                 }
+                attempts++;
+                pointsText.setText("Points: " + points + "/" + attempts);
                 createQuiz();
             }
         });
@@ -78,8 +83,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(correctIndex == 1) {
                     points++;
-                    pointsText.setText("Points: " + points);
                 }
+                attempts++;
+                pointsText.setText("Points: " + points + "/" + attempts);
                 createQuiz();
             }
         });
@@ -87,8 +93,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(correctIndex == 2) {
                     points++;
-                    pointsText.setText("Points: " + points);
                 }
+                attempts++;
+                pointsText.setText("Points: " + points + "/" + attempts);
                 createQuiz();
             }
         });
