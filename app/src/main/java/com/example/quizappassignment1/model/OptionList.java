@@ -20,10 +20,6 @@ public class OptionList {
                 new Option(R.drawable.loanlink_logo, "Loanlink"));
     }
 
-    public void add(Option newEntry) {
-        optionList.add(newEntry);
-    }
-
     public List<Option> getOptionList() {
         return optionList;
     }
@@ -32,12 +28,20 @@ public class OptionList {
         this.optionList = optionList;
     }
 
+    public void add(Option newEntry) {
+        optionList.add(newEntry);
+    }
+
     public Option getRandomOption() {
         List<Option> copy = optionList;
 
         Collections.shuffle(copy);
 
         return copy.get(0);
+    }
+
+    public void sort() {
+        optionList.sort((a, b) -> a.getMatchingName().compareTo(b.getMatchingName()));
     }
 
     public List<String> getThreeRandomAnswers(Option correct) {
