@@ -23,41 +23,32 @@
             android:contentDescription="Image for quiz" />
 
         <Button
-            android:layout_width="250dp"
-            android:layout_height="75dp"
-            android:layout_below="@id/quizImage"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:textSize="24sp"
-            android:text="Option 1"/>
-
-        <Button
             android:id="@+id/btnOption1"
             android:layout_width="250dp"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_below="@id/quizImage"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:text="Option 1"/>
         <Button
             android:id="@+id/btnOption2"
             android:layout_width="250dp"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_below="@id/btnOption1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:text="Option 2"/>
 
         <Button
             android:id="@+id/btnOption3"
             android:layout_width="250dp"
-            android:layout_height="75dp"
+            android:layout_height="50dp"
             android:layout_below="@id/btnOption2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:text="Option 3"/>
 
     </RelativeLayout>
