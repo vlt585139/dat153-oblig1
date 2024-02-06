@@ -23,6 +23,8 @@ public class GalleryActivity extends AppCompatActivity {
 
     ImageView selectedImage;
 
+    GalleryAdapter galleryAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,7 @@ public class GalleryActivity extends AppCompatActivity {
         Storage.getOptionList().sort();
 
         listView = findViewById(R.id.galleryList);
-        GalleryAdapter galleryAdapter = new GalleryAdapter(this, R.layout.list_row, Storage.getOptionList().getOptionList());
+        galleryAdapter = new GalleryAdapter(this, R.layout.list_row, Storage.getOptionList().getOptionList());
         listView.setAdapter(galleryAdapter);
 
         includedLayout = findViewById(R.id.includedLayout);
@@ -42,14 +44,19 @@ public class GalleryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(GalleryActivity.this, NewOptionActivity.class);
-                startActivity(intent);
+
+                // dont care its deprecated, the alternative is painful
+                startActivityForResult(intent, 91);
             }
         });
 
         Log.d("Test", Storage.getOptionList().toString());
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        finish();
+        startActivity(getIntent());
     }
 }
