@@ -32,7 +32,7 @@ public class QuizActivity extends AppCompatActivity {
 
     ImageView imageView;
 
-    EditText pointsText;
+    TextView pointsText;
 
     int points;
 
