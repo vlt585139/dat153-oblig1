@@ -87,15 +87,15 @@ public class NewOptionActivity extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             if (requestCode == 124) {
-                // Get the url of the image from data
+                // Get the uri of the image from data
                 selectedImageUri = data.getData();
                 if (null != selectedImageUri) {
                     imagePreview.setImageURI(selectedImageUri);
 
                     int flags = Intent.FLAG_GRANT_READ_URI_PERMISSION;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        getContentResolver().takePersistableUriPermission(selectedImageUri, flags);
-                    }
+
+                    getContentResolver().takePersistableUriPermission(selectedImageUri, flags);
+
                 }
             }
         }
@@ -104,15 +104,11 @@ public class NewOptionActivity extends AppCompatActivity {
 
 
     void imageChooser() {
-
-        // create an instance of the
-        // intent of the type image
         Intent i = new Intent();
         i.setType("image/*");
         i.setAction(Intent.ACTION_GET_CONTENT);
 
-        // pass the constant to compare it
-        // with the returned requestCode
+        // dont care if its deprecated, the alternative is painful
         startActivityForResult(Intent.createChooser(i, "Select Picture"), 124);
     }
 }

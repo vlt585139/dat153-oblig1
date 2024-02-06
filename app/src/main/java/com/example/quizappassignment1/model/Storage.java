@@ -22,7 +22,7 @@ public class Storage extends Application {
         convertImageToUriAndAddToList(R.drawable.kamera, "Camera");
         convertImageToUriAndAddToList(R.drawable.natur, "Nature");
         convertImageToUriAndAddToList(R.drawable.loanlink_logo, "Loanlink");
-        convertImageToUriAndAddToList(R.drawable.tre, "Tre");
+        convertImageToUriAndAddToList(R.drawable.tre, "Tree");
     }
 
     public static OptionList getOptionList() {
