@@ -34,6 +34,8 @@ public class QuizActivity extends AppCompatActivity {
 
     TextView pointsText;
 
+    TextView statusText;
+
     int points;
 
     int attempts;
@@ -46,6 +48,8 @@ public class QuizActivity extends AppCompatActivity {
         this.points = 0;
         this.attempts = 0;
         this.pointsText = findViewById(R.id.pointsText);
+        this.statusText = findViewById(R.id.statusTextView);
+
         pointsText.setText("Points: " + points + "/" + attempts);
 
         createQuiz();
@@ -73,6 +77,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(correctIndex == 0) {
                     points++;
+                    statusText.setText("Correct ✅");
+                } else {
+                    statusText.setText("Incorrect ❌");
                 }
                 attempts++;
                 pointsText.setText("Points: " + points + "/" + attempts);
@@ -83,6 +90,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(correctIndex == 1) {
                     points++;
+                    statusText.setText("Correct ✅");
+                } else {
+                    statusText.setText("Incorrect ❌");
                 }
                 attempts++;
                 pointsText.setText("Points: " + points + "/" + attempts);
@@ -93,6 +103,9 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(correctIndex == 2) {
                     points++;
+                    statusText.setText("Correct ✅");
+                } else {
+                    statusText.setText("Incorrect ❌");
                 }
                 attempts++;
                 pointsText.setText("Points: " + points + "/" + attempts);
