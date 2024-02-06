@@ -55,6 +55,27 @@ public class QuizActivity extends AppCompatActivity {
         createQuiz();
     }
 
+    private void onAnswer(int thisIndex) {
+        // If we answered correct, increase points
+        // Update status text
+        if(correctIndex == thisIndex) {
+            points++;
+            statusText.setText("Correct ✅");
+        } else {
+            statusText.setText("Incorrect ❌");
+        }
+        // Always increase attempts
+        attempts++;
+        // And update points text
+        float percentage = ((float) points / attempts) * 100;
+        int roundedPercentage = Math.round(percentage);
+        String text = String.format("Points: %d/%d (%d%%)", points, attempts, roundedPercentage);
+        pointsText.setText(text);
+
+        // Update the buttons etc. (basically refresh view)
+        createQuiz();
+    }
+
     public void createQuiz() {
         correct = Storage.getOptionList().getRandomOption();
         options = Storage.getOptionList().getThreeRandomAnswers(correct);
@@ -75,41 +96,17 @@ public class QuizActivity extends AppCompatActivity {
 
         btnOption1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(correctIndex == 0) {
-                    points++;
-                    statusText.setText("Correct ✅");
-                } else {
-                    statusText.setText("Incorrect ❌");
-                }
-                attempts++;
-                pointsText.setText("Points: " + points + "/" + attempts);
-                createQuiz();
+                onAnswer(0);
             }
         });
         btnOption2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(correctIndex == 1) {
-                    points++;
-                    statusText.setText("Correct ✅");
-                } else {
-                    statusText.setText("Incorrect ❌");
-                }
-                attempts++;
-                pointsText.setText("Points: " + points + "/" + attempts);
-                createQuiz();
+                onAnswer(1);
             }
         });
         btnOption3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(correctIndex == 2) {
-                    points++;
-                    statusText.setText("Correct ✅");
-                } else {
-                    statusText.setText("Incorrect ❌");
-                }
-                attempts++;
-                pointsText.setText("Points: " + points + "/" + attempts);
-                createQuiz();
+                onAnswer(2);
             }
         });
     }
