@@ -49,6 +49,9 @@ public class GalleryAdapter extends ArrayAdapter<Option> {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 OptionList optionList = Storage.getOptionList();
+
+                // We assume there will always be 3 elements, so don't allow
+                // deletion when there is fewer.
                 if (optionList.getOptionList().size() > 3) {
                     // Remove the item from the data source
                     optionList.remove(getItem(position));

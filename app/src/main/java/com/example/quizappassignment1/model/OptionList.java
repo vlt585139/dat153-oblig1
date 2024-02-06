@@ -38,6 +38,7 @@ public class OptionList {
 
     public void remove(Option entry) {
         optionList.remove(entry);
+        // No need to sort(); because a sorted list will never become unsorted after a delete operation
     }
 
     /**
