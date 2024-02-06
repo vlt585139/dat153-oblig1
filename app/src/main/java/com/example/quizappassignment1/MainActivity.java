@@ -12,6 +12,9 @@ import android.widget.ListView;
 import com.example.quizappassignment1.model.Option;
 import com.example.quizappassignment1.model.OptionList;
 
+import com.example.quizappassignment1.model.Option;
+import com.example.quizappassignment1.model.OptionList;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -19,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Button openGalleryButton = (Button) findViewById(R.id.openGallery);
         openGalleryButton.setOnClickListener(new View.OnClickListener() {
