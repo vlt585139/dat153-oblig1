@@ -6,24 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <RelativeLayout
+        android:id="@+id/relativeLayoutMain"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
     <Button
         android:id="@+id/openQuiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="Quiz"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
 
     <Button
         android:id="@+id/openGallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginBottom="300dp"
+        android:layout_below="@id/openQuiz"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:text="Gallery"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-  
+        />
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
