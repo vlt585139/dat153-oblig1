@@ -34,7 +34,7 @@ public class GalleryAdapter extends ArrayAdapter<Option> {
         convertView = layoutInflater.inflate(mResource, parent, false);
 
         ImageView imageView = convertView.findViewById(R.id.image);
-        imageView.setImageResource(getItem(position).getImage());
+        imageView.setImageURI(getItem(position).getImage());
 
         TextView txtAnswer = convertView.findViewById(R.id.txtAnswer);
         txtAnswer.setText(getItem(position).getMatchingName());

@@ -17,14 +17,11 @@ import com.example.quizappassignment1.model.OptionList;
 
 public class MainActivity extends AppCompatActivity {
 
-    static OptionList optionList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        optionList = new OptionList();
 
         Button openGalleryButton = (Button) findViewById(R.id.openGallery);
         openGalleryButton.setOnClickListener(new View.OnClickListener() {

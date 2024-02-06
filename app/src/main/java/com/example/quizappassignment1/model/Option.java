@@ -1,22 +1,24 @@
 package com.example.quizappassignment1.model;
 
+import android.net.Uri;
+
 import java.util.Objects;
 
 public class Option {
 
-    private int image;
+    private Uri image;
     private String matchingName;
 
-    public Option(int image, String matchingName) {
+    public Option(Uri image, String matchingName) {
         this.image = image;
         this.matchingName = matchingName;
     }
 
-    public int getImage() {
+    public Uri getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Uri image) {
         this.image = image;
     }
 
