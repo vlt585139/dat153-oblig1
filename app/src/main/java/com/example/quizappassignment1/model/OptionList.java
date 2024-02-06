@@ -36,6 +36,10 @@ public class OptionList {
         sort();
     }
 
+    public void remove(Option entry) {
+        optionList.remove(entry);
+    }
+
     /**
      * Gets a random option from the Optionlist
      * @return
