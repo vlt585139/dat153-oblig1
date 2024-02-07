@@ -70,7 +70,6 @@ public class NewOptionActivity extends AppCompatActivity {
         btnAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TEST", selectedImageUri.toString());
                 if (selectedImageUri == null || editText.getText() == null)
                     return;
 
