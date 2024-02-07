@@ -15,13 +15,13 @@ import com.example.quizappassignment1.model.Storage;
 
 public class GalleryActivity extends AppCompatActivity {
 
-    View includedLayout;
+    View relativeLayoutGallery;
 
     ListView listView;
 
     Button newImage;
 
-    ImageView selectedImage;
+    Button sort;
 
     GalleryAdapter galleryAdapter;
 
@@ -29,17 +29,15 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
+        relativeLayoutGallery = findViewById(R.id.relativeLayoutGallery);
 
         Storage.getOptionList().sort();
 
-        listView = findViewById(R.id.galleryList);
+        listView = relativeLayoutGallery.findViewById(R.id.galleryList);
         galleryAdapter = new GalleryAdapter(this, R.layout.list_row, Storage.getOptionList().getOptionList());
         listView.setAdapter(galleryAdapter);
 
-        includedLayout = findViewById(R.id.includedLayout);
-        newImage = includedLayout.findViewById(R.id.newImage);
-        selectedImage = includedLayout.findViewById(R.id.selectedImage);
-
+        newImage = relativeLayoutGallery.findViewById(R.id.newImage);
         newImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +48,17 @@ public class GalleryActivity extends AppCompatActivity {
             }
         });
 
-        Log.d("Test", Storage.getOptionList().toString());
+        sort = relativeLayoutGallery.findViewById(R.id.sort);
+        sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Storage.getOptionList().changeSortType();
+                Storage.getOptionList().sort();
+
+                finish();
+                startActivity(getIntent());
+            }
+        });
     }
 
     @Override

@@ -15,8 +15,11 @@ public class OptionList {
 
     private List<Option> optionList;
 
+    private String sortType;
+
     public OptionList() {
         this.optionList = new ArrayList<Option>();
+        this.sortType = "alphabetical";
     }
 
     public List<Option> getOptionList() {
@@ -25,6 +28,21 @@ public class OptionList {
 
     public void setOptionList(List<Option> optionList) {
         this.optionList = optionList;
+    }
+
+    public String getSortType() {
+        return sortType;
+    }
+
+    public void setSortType(String sortType) {
+        this.sortType = sortType;
+    }
+
+    public void changeSortType() {
+        if(sortType.equals("alphabetical"))
+            sortType = "reverse";
+        else
+            sortType = "alphabetical";
     }
 
     /**
@@ -60,7 +78,11 @@ public class OptionList {
      * Method to sort the list A-Z based on names
      */
     public void sort() {
-        optionList.sort((a, b) -> a.getMatchingName().compareTo(b.getMatchingName()));
+        if(sortType.equals("alphabetical"))
+            optionList.sort((a, b) -> a.getMatchingName().compareTo(b.getMatchingName()));
+
+        if(!sortType.equals("alphabetical"))
+            optionList.sort((a, b) -> b.getMatchingName().compareTo(a.getMatchingName()));
     }
 
     /**
